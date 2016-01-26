@@ -1,0 +1,10 @@
+<div ng-controller="postCtrl">
+	<div class="container singlePost">
+		<img ng-src="{{post[0].get('featuredImage').url()}}"
+			width="100%" />
+		<h3>
+			<strong>{{post[0].get('postTitle')}}</strong>
+		</h3>
+		<p>{{post[0].get('postContent')}}</p>
+	</div>
+</div>

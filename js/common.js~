@@ -1,0 +1,19 @@
+function showInlineNews(){
+console.log("FF");    
+        $('.card-reveal').show();
+}
+
+function hideInlineNews(){
+console.log("FF");    
+        $('.card-reveal').hide();
+}
+
+$.fn.preload = function() {
+    this.each(function(){
+        $('<img/>')[0].src = this;
+    });
+}
+
+// Usage:
+
+$(['http://www.customercarehelp.co.in/wp-content/uploads/2013/09/407304_3021804544584_369223300_n.jpg']).preload();

@@ -1,0 +1,41 @@
+<div class="container">
+	<div id="postForm" style="padding: 0%">
+		<form id="newPost">
+			<div class="form-group">
+				<label class="control-label" for="postTitle">Post Title</label> <input
+					type="text" name="postTitle" class="form-control"
+					placeholder="Post title">
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="postContent">Post Content</label>
+				<div id="summernote">Hello Summernote</div>
+				<textarea style="display: none" class="form-control"
+					id="postContent" name="postContent" placeholder="Post Content" />
+			</div>
+			<input type="file" id="featuredImage" name="featuredImage"> <input
+				onclick="save()" type="submit" class="btn" value="Submit">
+		</form>
+	</div>
+	<div id="postLists" ng-controller="categoryController">
+		<button id="refresh" class="btn" style="" ng-click="show()">Show</button>
+		<div class="col-xs-12 col-md-12 list-start" ng-repeat="post in posts">
+			<div class="col-xs-3 col-md-3 content-ready">
+				{{post.get('postTitle')}}</div>
+			<div class="col-xs-12 col-md-12">
+				<hr>
+			</div>
+		</div>
+	</div>
+
+</div>
+<script>
+	$('#summernote').summernote();
+	function getRichTextValue() {
+		console.log("Getting");
+		$('#summernote').summernote({
+			focus : true
+		});
+		var textareaValue = $('#summernote').summernote('code');
+		$("#postContent").val(textareaValue);
+	}
+</script>

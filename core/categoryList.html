@@ -1,0 +1,57 @@
+<div class="container">
+	<div class="topAd">
+		This page is sponsored by <a href="http://www.sanacrackers.com">Sana
+			Crackers</a>
+	</div>
+	<hr>
+	
+	<div id="postForm" style="padding: 3%">
+	
+		<form id="newPost">
+			<input type="text" name="postTitle" class="form-control"
+				placeholder="Post title"><br>
+			<textarea class="form-control" name="postContent"
+				placeholder="Post Content" />
+			<input type="file" id="featuredImage" name="featuredImage"> <input onclick="save()" type="submit"
+				class="btn" value="Submit">
+		</form>
+	</div>
+	<div class="row">
+		<div id="postLists" ng-controller="categoryController">
+			<div class="col-xs-12 col-md-12 list-start" ng-repeat="post in posts">
+				<div id="contentReady" class="col-xs-12 col-md-2 content-ready">
+					<div style="display: block" class="pull-right content-left">
+						<small>SITE{{post.get('site').get('siteName')}}</small>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-8">
+					<div
+						style="height: 200px; overflow: hidden; border-radius: 6px; vertical-align: middle;">
+						<img style="align: middle; width: 100%;"
+							ng-src="{{post.get('featuredImage').url()}}">
+					</div>
+					<div class="">
+						<br> <a href="#/p/{{post.id}}"><h4>{{post.get('postTitle')}}</h4></a>
+						{{post.get('custom')}}
+						<p>{{post.get('postContent')}}</p>
+						<a class="btn-read" href="#/p/{{post.id}}">Read full story</a>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-2">
+					<span id="{{post.id}}">{{post.id}}</span> Posted by:
+					{{post.get('postTitle')}}.
+					<div class="keywords">
+						<a target="_blank" class="btn  btn-link btn-sm"
+							href="sales/invoicePrint/'">Tamil</a> <a target="_blank"
+							class="btn  btn-link btn-sm" href="sales/invoicePrint/'">News</a>
+						<a target="_blank" class="btn  btn-link btn-sm"
+							href="sales/invoicePrint/'"><i class="fa fa-share-alt"></i></a>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-12">
+					<hr>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
