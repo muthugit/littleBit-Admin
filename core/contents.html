@@ -4,7 +4,7 @@
 			<div class="form-group">
 				<label class="control-label" for="postTitle">Post Title</label> <input
 					type="text" name="postTitle" class="form-control"
-					placeholder="Post title">
+					placeholder="Post title" value="dd">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="postContent">Post Content</label>
@@ -16,11 +16,11 @@
 				onclick="save()" type="submit" class="btn" value="Submit">
 		</form>
 	</div>
-	<div id="postLists" ng-controller="categoryController">
+	<div id="postLists" ng-controller="postController">
 		<button id="refresh" class="btn" style="" ng-click="show()">Show</button>
-		<div class="col-xs-12 col-md-12 list-start" ng-repeat="post in posts">
+		<div class="col-xs-12 col-md-12 list-start" ng-repeat="msg in messages">
 			<div class="col-xs-3 col-md-3 content-ready">
-				{{post.get('postTitle')}}</div>
+				{{ msg.from }}</div>
 			<div class="col-xs-12 col-md-12">
 				<hr>
 			</div>
@@ -29,7 +29,12 @@
 
 </div>
 <script>
-	$('#summernote').summernote();
+	$('#summernote').summernote(
+			{
+				fontNames : [ 'Roboto','Serif', 'Sans', 'Arial', 'Arial Black',
+						'Courier', 'Courier New', 'Comic Sans MS', 'Helvetica',
+						'Impact', 'Lucida Grande' ]
+			});
 	function getRichTextValue() {
 		console.log("Getting");
 		$('#summernote').summernote({

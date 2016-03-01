@@ -1,35 +1,44 @@
-<div id="topNavigation" class="topNav">
-	<div ng-include='"core/menu.html"'></div>
-	<button class="btn btn-primary pull-right" onclick="logOut();">Logout</button>
-</div>
-<div class="mask"></div>
-<!-- 	<nav class=" navbar navbar-default"> -->
+<nav class="navbar navbar-fixed-top is-visible navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">TC</a>
+		</div>
 
-<div id="baseErpHeader" class="navbar is-visible"
-	data-nav-status="toggle" style="background-color: white;">
-	<div class="col-xs-12 col-md-12">
-		<a style="color: blue" class="col-xs-6 col-md-3 navbar-brand" href="#/">littleBit-Admin</a>
-		<span class="pull-right showTopNav" style="padding-top: 20px;"><a
-			style="color: blue" onclick="showTopNav();" href=""><i
-				class="fa fa-chevron-circle-down fa-2x"></i> </a></span> <span
-			style="display: none; padding-top: 20px;"
-			class="pull-right hideTopNav"><a style="color: blue"
-			onclick="hideTopNav();" href=""><i
-				class="fa fa-chevron-circle-up fa-2x"></i> </a></span>
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active"><a class="btn btn-link" href="#">HOME <span
+						class="sr-only">(current)</span></a></li>
+				<li><a class="btn btn-link" href="#">Creators</a></li>
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-expanded="false">Channels
+						<span class="caret"></span>
+				</a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#">Action</a></li>
+						<li><a href="#">Another action</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Separated link</a></li>
+						<li class="divider"></li>
+						<li><a href="#">One more separated link</a></li>
+					</ul></li>
+			</ul>
+			<form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search">
+				</div>
+				<button type="submit" class="btn btn-link">Submit</button>
+			</form>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#" class="btn btn-link">Profile</a></li>
+			</ul>
+		</div>
 	</div>
-</div>
-<!-- <div class="progress"> -->
-<!-- 	<div class="indeterminate"></div> -->
-<!-- </div> -->
-<script>
-	function showTopNav() {
-		$(".showTopNav").hide();
-		$(".hideTopNav").show();
-		$("#topNavigation").show(200);
-	}
-	function hideTopNav() {
-		$(".showTopNav").show();
-		$(".hideTopNav").hide();
-		$("#topNavigation").hide(200);
-	}
-</script>
+</nav>

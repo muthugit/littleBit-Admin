@@ -1,7 +1,3 @@
-Parse.initialize("oQ0OXIziUqnCHigLHX9onk1x9dZ6CKul2wbJCiv4",
-		"3udbN0b2m3rckSZKZTNfK5mSXtzOmtujwjGsajgH");
-
-
 
 $(document).ready(
 		function() {

@@ -6,7 +6,8 @@
 /**
  * Main AngularJS Web Application
  */
-var app = angular.module('littleBitAdminApp', [ 'ngRoute', 'ngStorage' ]);
+var app = angular.module('littleBitAdminApp', [ 'ngRoute', 'ngStorage',
+		'firebase' ]);
 
 /**
  * Configure the Routes

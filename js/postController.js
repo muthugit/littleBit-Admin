@@ -1,22 +1,24 @@
-var PostsList = Parse.Object.extend("posts");
-app.controller('postCtrl', [ '$scope', '$routeParams',
-		function($scope, $routeParams,$localStorage, $sessionStorage, $window) {
-			var postId = $routeParams.postId;
-			$scope.post = [];
-//			if ($localStorage.postId) {
-//				console.log("Item found in cache");
-//				$scope.$apply(function() {
-//					$scope.post.push(cacheItem);
-//				});
-//			} else {
-				var query = new Parse.Query(PostsList);
-				query.get(postId, {
-					success : function(results) {
-						$scope.$apply(function() {
-							$scope.post.push(results);
-							localStorage.setItem(postId, results);
-						});
-					}
-				});
-//			}
+app.controller('postController', [ '$scope', '$firebaseArray',
+		function($scope, $firebaseArray) {
+			var ref = new Firebase("https://littlebit.firebaseio.com/posts/");
+			$scope.messages = $firebaseArray(ref);
+
+			var $form = $('form');
+			var data = $form.serializeArray().filter(function(k) {
+				console.log("-------" + k.value);
+				return $.trim(k.value) != "";
+			});
+			var dataIP = {};
+			$.each(data, function(i, field) {
+				dataIP[field.name] = field.value;
+			});
+
+			$scope.messages.$add({
+				rr:dataIP,			
+			});
 		} ]);
+
+function getFormObjects() {
+
+	return dataIP;
+}
